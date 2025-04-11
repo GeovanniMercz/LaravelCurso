@@ -7,11 +7,10 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>
-        Hello World
-    </h1>
-    <Button>
-        <a href={{ route("crud")}}>Crud</a>
-    </Button>
+    <H1>
+        Contact One
+        <br>
+        {{$name}}
+    </H1>
 </body>
 </html>
