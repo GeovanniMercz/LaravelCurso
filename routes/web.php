@@ -12,7 +12,9 @@ Route::get('/', function () {
 
 Route::get('/contact',function(){
     $data = ['name'=> 'Geovanni'];
-    return view('contact1',$data);
+    return to_route('contact2');
+    //return redirect () -> route('contact2');
+    //return view('contact1',$data);
 })->name('contact');
 
 Route::get('/contact2',function(){
