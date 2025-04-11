@@ -1,26 +1,12 @@
 <?php
 
+use App\Http\Controllers\PrimerControlador;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-/*Route::get('/test',function(){
-    return "Welcome";
-});*/
+Route::get('test',[PrimerControlador::class,'index']);
 
-Route::get('/contact',function(){
-    $data = ['name'=> 'Geovanni'];
-    //return to_route('contact1');
-    //return redirect () -> route('contact2');
-    return view('contact1',$data);
-})->name('contact');
 
-Route::get('/contact2',function(){
-    return view('contact2');
-})->name('contact2');
-
-Route::get('/master',function(){
-    return view('master');
-})->name('master');
