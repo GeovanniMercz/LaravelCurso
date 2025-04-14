@@ -11,4 +11,13 @@ class PrimerControlador extends Controller
         return view('contact1',$data);
         
     }
+
+
+
+
+
+
+
+
+    
 }
