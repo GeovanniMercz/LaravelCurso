@@ -7,8 +7,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('test',[PrimerControlador::class,'index']);
+Route::get('test',action: [PrimerControlador::class,'index']);
+Route::get('other/{post?}',action: [PrimerControlador::class,'other']);
 
-Route::resource('post',PrimerControlador::class);
+
+
 
 
