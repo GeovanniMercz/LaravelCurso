@@ -16,18 +16,44 @@ class PostController extends Controller
     public function index()
     {
 
-        Post::create(
-            [
-                'title' => 'test title',
-                'slug' => 'test slug',
-                'content' => 'test content',
-                'category_id' => 1,
-                'description' => 'test description',
-                'posted' => 'not',
-                'image' => 'test image',
-            ]
-        );
-        return 'Index';
+        $post = Post::find(3);
+        $post->delete();
+
+
+
+
+
+
+
+
+        // dd($post);
+
+        // $post -> update(
+        //     [
+        //         'title' => 'test title new 2',
+        //         'slug' => 'test slug new',
+        //         'content' => 'test content new',
+        //         'category_id' => 1,
+        //         'description' => 'test description new',
+        //         'image' => 'test image new',
+        //     ]
+        // );
+
+         //dd($post->title);
+
+        // $post = Post::create(
+        //     [
+        //         'title' => 'test title',
+        //         'slug' => 'test slug',
+        //         'content' => 'test content',
+        //         'category_id' => 1,
+        //         'description' => 'test description',
+        //         'posted' => 'not',
+        //         'image' => 'test image',
+        //     ]
+        // );
+        // dd($post->title);
+       
     }
 
     /**
