@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
-use App\Models\Post;
 use Illuminate\Http\Request;
+
+use App\Models\Post;
+
 
 class PostController extends Controller
 {
@@ -13,7 +15,19 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+
+        Post::create(
+            [
+                'title' => 'test title',
+                'slug' => 'test slug',
+                'content' => 'test content',
+                'category_id' => 1,
+                'description' => 'test description',
+                'posted' => 'not',
+                'image' => 'test image',
+            ]
+        );
+        return 'Index';
     }
 
     /**
