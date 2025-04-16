@@ -18,7 +18,7 @@ class PostController extends Controller
     public function index()
     {
 
-        $posts = Post::get(); //Busca el registro en la base de datos con el ID que se pone como parametro 
+        $posts = Post::paginate(3); //Busca el registro en la base de datos con el ID que se pone como parametro 
         return view ('dashboard/post/index',compact('posts'));
 
         
