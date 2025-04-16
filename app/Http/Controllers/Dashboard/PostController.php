@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 use App\Models\Post;
@@ -16,19 +17,11 @@ class PostController extends Controller
     public function index()
     {
 
-        $post = Post::find(3);
-        $post->delete();
+        $post = Post::find(1); //Busca el registro en la base de datos con el ID que se pone como parametro 
 
+        // $post = Post::find(1)->delete(); //Borra el registro de la base de datos con el ID que se le manda 
 
-
-
-
-
-
-
-        // dd($post);
-
-        // $post -> update(
+        // $post -> update(  //Se actualiza la informacion dependiendo del ID que tenga la variable de $post
         //     [
         //         'title' => 'test title new 2',
         //         'slug' => 'test slug new',
@@ -39,9 +32,7 @@ class PostController extends Controller
         //     ]
         // );
 
-         //dd($post->title);
-
-        // $post = Post::create(
+        // $post = Post::create( //Crea un registro en la tabla de post con todas sus columnas 
         //     [
         //         'title' => 'test title',
         //         'slug' => 'test slug',
@@ -52,7 +43,6 @@ class PostController extends Controller
         //         'image' => 'test image',
         //     ]
         // );
-        // dd($post->title);
        
     }
 
@@ -61,7 +51,9 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+
+        $categories = Category::pluck('id','title');
+            return view('dashboard.post.create',compact('categories'));
     }
 
     /**
@@ -69,7 +61,7 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request->all()['title']);
     }
 
     /**
