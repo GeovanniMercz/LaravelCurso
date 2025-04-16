@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Post\StoreRequest;
 use App\Models\Category;
 use Illuminate\Http\Request;
 
@@ -17,7 +18,7 @@ class PostController extends Controller
     public function index()
     {
 
-        $post = Post::find(1); //Busca el registro en la base de datos con el ID que se pone como parametro 
+        //$post = Post::find(1); //Busca el registro en la base de datos con el ID que se pone como parametro 
 
         // $post = Post::find(1)->delete(); //Borra el registro de la base de datos con el ID que se le manda 
 
@@ -43,7 +44,7 @@ class PostController extends Controller
         //         'image' => 'test image',
         //     ]
         // );
-       
+         return 'Index';
     }
 
     /**
@@ -59,9 +60,12 @@ class PostController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
-        dd($request->all()['title']);
+
+        Post::create($request->validated());
+        return to_route('post.index');
+
     }
 
     /**
