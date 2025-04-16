@@ -2,19 +2,10 @@
 
 @section('contect')
 
+    @include('dashboard.fragment._errors-form')
 
-        @if ($errors->any())
-        @foreach ($errors->all() as $e)
-            <div>
-                <ul>
-                    <li>
-                        {{$e}}
-                    </li>
-                </ul>
-            </div>
-        @endforeach
-            
-        @endif
+
+    
 
         <form action="{{route(name: 'post.store')}}" method="post">
 
