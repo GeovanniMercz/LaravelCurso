@@ -1,7 +1,24 @@
 @extends('dashboard.master')
 
 @section('contect')
-    <form action="{{route('post.store')}}" method="post">
+
+
+        @if ($errors->any())
+        @foreach ($errors->all() as $e)
+            <div>
+                <ul>
+                    <li>
+                        {{$e}}
+                    </li>
+                </ul>
+            </div>
+        @endforeach
+            
+        @endif
+
+        <form action="{{route(name: 'post.store')}}" method="post">
+
+
 
         @csrf
 
