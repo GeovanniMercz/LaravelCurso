@@ -4,9 +4,7 @@
     @include('dashboard.fragment._errors-form')
 
     <a href="{{ route('post.create')}}" target="blank">Create</a>
-    <Button>
-        Create
-    </Button>
+   
     <table>
         <thead>
             <tr>

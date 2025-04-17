@@ -20,9 +20,9 @@ class PostController extends Controller
     {
 
         $posts = Post::paginate(3); //Busca el registro en la base de datos con el ID que se pone como parametro 
-        return view ('dashboard/post/index',compact('posts'));
+        return view('dashboard/post/index', compact('posts'));
 
-        
+
 
         // $post = Post::find(1)->delete(); //Borra el registro de la base de datos con el ID que se le manda 
 
@@ -48,7 +48,7 @@ class PostController extends Controller
         //         'image' => 'test image',
         //     ]
         // );
-        
+
 
 
 
@@ -61,8 +61,9 @@ class PostController extends Controller
     public function create()
     {
 
-        $categories = Category::pluck('id','title');
-            return view('dashboard.post.create',compact('categories'));
+        $categories = Category::pluck('id', 'title');
+        $post = new Post();
+        return view('dashboard.post.create', compact('categories', 'post'));
     }
 
     /**
@@ -73,7 +74,6 @@ class PostController extends Controller
 
         Post::create($request->validated());
         return to_route('post.index');
-
     }
 
     /**
@@ -89,8 +89,8 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        $categories = Category::pluck('id','title');
-        return view('dashboard.post.edit',compact('categories', 'post'));
+        $categories = Category::pluck('id', 'title');
+        return view('dashboard.post.edit', compact('categories', 'post'));
     }
 
     /**
@@ -98,8 +98,8 @@ class PostController extends Controller
      */
     public function update(PutRequest $request, Post $post)
     {
-        $post -> update($request->validated ());
-        return to_route ('post.index');
+        $post->update($request->validated());
+        return to_route('post.index');
     }
 
     /**
