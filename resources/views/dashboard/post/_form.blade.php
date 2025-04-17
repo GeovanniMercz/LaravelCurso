@@ -20,7 +20,7 @@
     <label for="">Category</label>
     <select name="category_id">
         @foreach ($categories as $title => $id)
-            <option {{ old('category_id',$post->category_id) == $id ? 'selected' : '' }} value="{{ $id }}">
+            <option {{ old('category_id', $post->category_id) == $id ? 'selected' : '' }} value="{{ $id }}">
                 {{ $title }}
             </option>
         @endforeach
@@ -29,17 +29,21 @@
 
 <div>
     <label for="">Description</label>
-    <textarea name="description">{{ old('description',$post->description) }}</textarea>
+    <textarea name="description">{{ old('description', $post->description) }}</textarea>
 </div>
 
 <div>
     <label for="">Posted</label>
     <select name="posted">
-        <option {{ old('posted',$post->posted) == 'yes' ? 'selected' : '' }} value="yes">YES</option>
-        <option {{old('posted', $post->posted) == 'not' ? 'selected' : '' }} value="not">NO</option>
+        <option {{ old('posted', $post->posted) == 'yes' ? 'selected' : '' }} value="yes">YES</option>
+        <option {{ old('posted', $post->posted) == 'not' ? 'selected' : '' }} value="not">NO</option>
 
     </select>
 </div>
+@if ($task == 'edit')
+    <label for="">Image</label>
+    <input type="file" name="image">
+@endif
 
 <button type="submit">
     Send
