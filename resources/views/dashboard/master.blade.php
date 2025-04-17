@@ -10,6 +10,8 @@
     <header>
         Header
     </header>
+    <br>
+    
     @yield(section: 'contect')
 
     <section>
