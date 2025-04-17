@@ -21,13 +21,15 @@ class PutRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
+        return [ //Reglas para las validaciones que debe de tener el usuario al momento de ingresar los datos 
             'title' => 'required|min:5|max:500',
             'slug' => 'required|min:5|max:500|unique:posts,slug,'.$this->route('post')->id,
             'content' => 'required|min:7|',
             'category_id' => 'required|integer',
             'description' => 'required|min:7',
             'posted' => 'required',
+            'image' => 'mimes:jpeg,jpg,png|max:10240',
+
         ];
     }
 }
