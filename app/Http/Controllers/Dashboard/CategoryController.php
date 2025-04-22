@@ -13,7 +13,7 @@ class CategoryController extends Controller
    
     public function index()
     {
-        $categories = Category::paginate(3); //Busca el registro en la base de datos con el ID que se pone como parametro 
+        $categories = Category::paginate(3); 
         return view('dashboard/category/index', compact('categories'));
     }
 
