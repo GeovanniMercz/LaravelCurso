@@ -24,6 +24,11 @@ class PostController extends Controller
         );
     }
 
+    public function slug(Post $post) {
+        // $post = Post::where("slug",$slug)->firstOrFail();
+        return response()->json($post);
+    }
+
     public function store(StoreRequest $request)
     {
         return response()->json(Post::create($request->validated()));
