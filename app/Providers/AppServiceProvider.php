@@ -11,7 +11,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        // Aquí puedes registrar servicios o bindings si los necesitas
     }
 
     /**
@@ -19,6 +19,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        // Aquí puedes añadir lógica que se ejecute al arrancar la aplicación
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Category;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Response;
 
 class PutRequest extends FormRequest
 {
@@ -19,5 +20,13 @@ class PutRequest extends FormRequest
             'slug' => 'required|max:500|unique:categories,slug,'.$this->route('category')->id,
 
         ];
+    }
+
+    public function failedValidation(\Illuminate\Contracts\Validation\Validator $validator){
+        if ($this->expectsJson()) {
+            $response = new Response($validator->errors(),422);
+            throw new \Illuminate\Validation\ValidationException($validator,$response);
+            }
+    
     }
 }
